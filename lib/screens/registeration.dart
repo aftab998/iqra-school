@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iqra_school/screens/category.dart';
 
 import '../components/textformfield.dart';
 
@@ -39,7 +40,7 @@ class _registerState extends State<register> {
               children: [
                 const SizedBox(height:6),
                 Image.asset("assets/log.png", height: 100, width:100),
-                const Text ('IQRA SCHOOL', style: TextStyle(fontWeight: FontWeight.w800,color: Colors.black,fontSize: 30),),
+                const Text ('IQRA SCHOOL', style: TextStyle(fontWeight: FontWeight.w600,color: Colors.black,fontSize: 30),),
                 const SizedBox(height: 5,),
                 inputfield(myController: teacherController, hint: "Teacher Name", obsureText: false,),
                 const SizedBox(height: 2,),
@@ -61,7 +62,11 @@ class _registerState extends State<register> {
                 Colors.deepOrange,
               ])),
 
-              child: const Center(child: Text("Registered Now",style:TextStyle(color:Colors.white),),)
+              child: InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> category()));
+                },
+                  child: const Center(child: Text("Registered Now",style:TextStyle(color:Colors.white),),))
             ),
 
 
