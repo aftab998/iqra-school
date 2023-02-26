@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iqra_school/screens/verification/submitverification.dart';
 
 
 class verification extends StatefulWidget {
@@ -15,8 +16,8 @@ class _verificationState extends State<verification> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
 
               const SizedBox(height: 12,),
@@ -54,7 +55,7 @@ class _verificationState extends State<verification> {
 
                          child: InkWell(
                              onTap: (){
-                               Navigator.push(context, MaterialPageRoute(builder: (context)=> verification()));
+                               Navigator.push(context, MaterialPageRoute(builder: (context)=> submitVerification()));
                              },
                              child: const Center(child: Text("Get Started",style:TextStyle(color:Colors.black),),))
                      ),
