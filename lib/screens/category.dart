@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iqra_school/screens/student/studentDetail.dart';
 
 class category extends StatefulWidget {
   const category({Key? key}) : super(key: key);
@@ -95,6 +96,7 @@ class _categoryState extends State<category> {
 
                                child: InkWell(
                                    onTap: (){
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=> studentDetail()));
                                    },
                                    child: const Center(child: Text("Login as a Student",style:TextStyle(color:Colors.white),),))
                            ),                    ],
