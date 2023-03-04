@@ -3,6 +3,7 @@ import 'package:iqra_school/screens/category.dart';
 import 'package:iqra_school/screens/verification/verified.dart';
 
 import '../components/textformfield.dart';
+import 'login/login.dart';
 
 
 class register extends StatefulWidget {
@@ -18,9 +19,14 @@ class _registerState extends State<register> {
   String? btn1 = "Select School";
   String? btn2;
   final menuItems = <String>[
-    "Iqra school", "Islamia school","Lead school",
+    "Select School","Iqra school", "Islamia school","Lead school",
   ];
 
+  String? selectedval = "";
+
+  _registerState(){
+    selectedval = menuItems[0];
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -40,14 +46,36 @@ class _registerState extends State<register> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height:6),
+                const SizedBox(height:4),
                 Image.asset("assets/log.png", height: 100, width:100),
                 const Text ('IQRA SCHOOL', style: TextStyle(fontWeight: FontWeight.w600,color: Colors.black,fontSize: 30),),
-                const SizedBox(height: 5,),
+                const SizedBox(height: 2,),
+                DropdownButtonFormField(
+
+                  decoration:  InputDecoration(
+                  border:  OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey,),
+                    borderRadius:BorderRadius.all(Radius.circular(8)),
+                  ),
 
 
+                  enabledBorder:  OutlineInputBorder(
+                      borderSide: BorderSide(color:Colors.black26 ,),
+                      borderRadius:BorderRadius.all(Radius.circular(8))
+                  ),
+                ),
 
-
+                    value: selectedval,
+                    items: menuItems.map(
+                            (e)=>DropdownMenuItem(child: Text(e),value: e,)
+                    ).toList(),
+                    onChanged: (val){
+                      setState(() {
+                        selectedval= val as String;
+                      });
+                    }
+                ),
+                const SizedBox(height: 2,),
                 inputfield(myController: teacherController, hint: "Teacher Name", obsureText: false,),
                 const SizedBox(height: 2,),
                 inputfield(myController: contactController, hint: "Contact us", obsureText: false,),
@@ -57,8 +85,8 @@ class _registerState extends State<register> {
                 inputfield(myController: passwordController, hint: "Password", obsureText: true,),
                 const SizedBox(height: 2,),
                 inputfield(myController: confirmPasswordController, hint: "Confirm Password", obsureText: true,),
-                const SizedBox(height: 5,),
-            Container(
+                const SizedBox(height: 8,),
+                Container(
               height:50,
               width:double.infinity,
               decoration: BoxDecoration(
@@ -70,10 +98,47 @@ class _registerState extends State<register> {
 
               child: InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> verification()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> category()));
                 },
                   child: const Center(child: Text("Registered Now",style:TextStyle(color:Colors.white),),))
             ),
+                const SizedBox(height: 10,),
+                Container(
+              height:50,
+              width:double.infinity,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  gradient: LinearGradient(colors: [
+                Colors.deepOrangeAccent,
+                Colors.deepOrange,
+              ])),
+
+              child: InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> login()));
+                },
+                  child: const Center(child: Text("Login",style:TextStyle(color:Colors.white),),))
+            ),
+                const SizedBox(height: 10,),
+                Container(
+                    height:50,
+                    width:double.infinity,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        gradient: LinearGradient(colors: [
+                          Colors.deepOrangeAccent,
+                          Colors.deepOrange,
+                        ])),
+
+                    child: InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> verification()));
+                        },
+                        child: const Center(child: Text("Verification",style:TextStyle(color:Colors.white),),))
+                ),
+                const SizedBox(height: 10,),
+
+
 
 
 
