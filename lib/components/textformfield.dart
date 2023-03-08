@@ -6,11 +6,13 @@ class inputfield extends StatelessWidget {
     required this.myController,
     required this.hint,
     required this.obsureText,
+    this.prefix,
   }) : super(key: key);
 
   final TextEditingController myController;
   final String hint;
   final bool obsureText;
+  final prefix;
 
 
   @override
@@ -20,13 +22,17 @@ class inputfield extends StatelessWidget {
       controller: myController,
       decoration: InputDecoration(
         hintText: hint,
-
-
+        prefixIcon: prefix,
         border: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.grey,),
           borderRadius:BorderRadius.all(Radius.circular(8)),
         ),
 
+        focusedBorder: const OutlineInputBorder(
+          borderSide:  BorderSide(color: Colors.black54),
+          borderRadius:BorderRadius.all(Radius.circular(8))
+
+        ),
         enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color:Colors.black26 ,),
             borderRadius:BorderRadius.all(Radius.circular(8))

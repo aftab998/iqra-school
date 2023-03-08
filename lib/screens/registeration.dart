@@ -31,11 +31,14 @@ class _registerState extends State<register> {
   Widget build(BuildContext context) {
 
 
-    final teacherController = TextEditingController();
-    final contactController = TextEditingController();
+    final studentController = TextEditingController();
+    final rollNoController = TextEditingController();
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
     final confirmPasswordController = TextEditingController();
+    final classController = TextEditingController();
+    final cityController = TextEditingController();
+
 
 
     return Scaffold(
@@ -76,9 +79,13 @@ class _registerState extends State<register> {
                     }
                 ),
                 const SizedBox(height: 2,),
-                inputfield(myController: teacherController, hint: "Teacher Name", obsureText: false,),
+                inputfield(myController: studentController, hint: "Student Name", obsureText: false,),
                 const SizedBox(height: 2,),
-                inputfield(myController: contactController, hint: "Contact us", obsureText: false,),
+                inputfield(myController: rollNoController, hint: "Student Roll No", obsureText: false,),
+                const SizedBox(height: 2,),
+                inputfield(myController: classController, hint: "Class", obsureText: false,),
+                const SizedBox(height: 2,),
+                inputfield(myController: cityController, hint: "City", obsureText: false,),
                 const SizedBox(height: 2,),
                 inputfield(myController: emailController, hint: "Email", obsureText: false,),
                 const SizedBox(height: 2,),

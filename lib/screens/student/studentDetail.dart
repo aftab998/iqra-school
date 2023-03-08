@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iqra_school/screens/fees/feeStructure.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 
@@ -108,8 +109,9 @@ class _studentDetailState extends State<studentDetail> {
 
                               child: InkWell(
                                   onTap: (){
-                                  },
-                                  child: const Center(child: Text("Student Feeds",style:TextStyle(fontSize:8,color:Colors.black),),))
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) => feeStructure()));                                  },
+                                  child: const Center(child: Text("Student fees",style:TextStyle(fontSize:8,color:Colors.black),),))
                           ),
                           Container(
                               height:20,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iqra_school/screens/notification/notification.dart';
 
 
 class homeScreen extends StatefulWidget {
@@ -21,7 +22,9 @@ class _studentDetailState extends State<homeScreen> {
         elevation: 0,
 
         actions:  [
-           Icon(Icons.add_alert_sharp, ),
+           IconButton(onPressed: (){
+             Navigator.push(context, MaterialPageRoute(builder: (context)=> notification()));
+           }, icon: Icon(Icons.add_alert_sharp,),),
            SizedBox(width: 8,)
         ],
       ),
